@@ -6,7 +6,7 @@
 				<img src="../../assets/img/tabbar/home_active.svg" slot="item-img-active">
 				<div slot="item-text">首页</div>
 			</nav-bar-item>
-			<nav-bar-item path="/category">
+			<nav-bar-item path="/classify">
 				<img src="../../assets/img/tabbar/category.svg" slot="item-img">
 				<img src="../../assets/img/tabbar/category_active.svg" slot="item-img-active">
 				<div slot="item-text">分类</div>
@@ -16,7 +16,7 @@
 				<img src="../../assets/img/tabbar/cart_active.svg" slot="item-img-active">
 				<div slot="item-text">购物车</div>
 			</nav-bar-item>
-			<nav-bar-item path="/profile">
+			<nav-bar-item path="/user">
 				<img src="../../assets/img/tabbar/profile.svg" slot="item-img">
 				<img src="../../assets/img/tabbar/profile_active.svg" slot="item-img-active">
 				<div slot="item-text">我的</div>

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<!-- 头部 -->
-		<nav-top>
+		<nav-top class='navtop'>
 			<div slot='center'>购物街</div>
 		</nav-top>
 		<!-- 吸顶栏 -->
@@ -97,7 +97,7 @@
 				let page = ++this.commodityList[type].page
 				this.request({
 					url:this.url.controldata,
-					methods:'get',
+					method:'get',
 					params:{
 						type:type,
 						page:page
@@ -128,17 +128,20 @@
 			},
 			showLoad (){
 				this.controlOffsetTop = this.$refs.control.$el.offsetTop
-				
 			}
 		},
 	}
 </script>
 
 <style scoped="scoped">
+	.navtop{
+		height: 44px;
+		background-color: #FF5777;
+		color: white;
+	}
 	.wrap{
 		height: calc(100vh - 94px);
 		overflow: hidden;
-		margin-top: 44px;
 	}
 	.control1{
 		position: fixed;

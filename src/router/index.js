@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
 Vue.use(VueRouter)
+
 const Home = () => import('../views/home/Home')
 const Classify = () => import('../views/classify/Classify')
 const Cart = () => import('../views/cart/Cart')
 const User = () => import('../views/user/User')
+const Details = () => import('../views/details/Details')
+
 const router = new VueRouter({
-	mode:'history',
+   mode:'history',
   routes:[
 		{
 			path:'/home',
@@ -28,6 +30,11 @@ const router = new VueRouter({
 			path:'/user',
 			component:User,
 			name:'User'
+		},
+		{
+			path:'/details',
+			component:Details,
+			name:'Details'
 		},
 		{
 			path:'/',

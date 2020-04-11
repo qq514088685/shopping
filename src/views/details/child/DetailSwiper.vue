@@ -2,9 +2,7 @@
 	<div>
 		<swiper ref="mySwiper" :options="swiperOptions" class="swiper" v-if='showSwiper'>
 			<swiper-slide v-for='(item,index) in bannerList' :key='index'>
-				<a :href="item.link">
-					<img :src="item.image" alt="" @load='showLoad'>
-				</a>
+					<img :src="item" alt="" @load='swiperLoad'>
 			</swiper-slide>
 			<div class="swiper-pagination" slot="pagination"></div>
 		</swiper>
@@ -15,20 +13,28 @@
 	import { Swiper, SwiperSlide} from 'vue-awesome-swiper'
 	import 'swiper/css/swiper.css'
 	export default {
-		name:'HomeSwiper',
+		name:'DetailSwiper',
+		components:{Swiper,SwiperSlide},
 		props:{
 			bannerList:{
 				type:Array,
 				default(){
 					return []
 				}
+			},
+			BScroll:{
+				type:Object,
+				default(){
+					return {}
+				}
 			}
 		},
-		components:{
-			Swiper,
-			SwiperSlide
+		methods:{
+			swiperLoad(){
+				this.BScroll.refresh()
+			}
 		},
-		data() {
+		data(){
 			return{
 				swiperOptions: {
 					pagination: {
@@ -42,13 +48,8 @@
 				}
 			}
 		},
-		methods:{
-			showLoad() {
-				this.$emit('showLoad')
-			}
-		},
 		computed:{
-			showSwiper () {
+			showSwiper() {
 				return this.bannerList.length
 			}
 		}
@@ -56,8 +57,13 @@
 </script>
 
 <style scoped="scoped">
+	.swiper{
+		width: 100vw;
+		height: 60vh;
+	}
 	.swiper img{
 		width: 100%;
+		
 	}
 	.swiper-container {
 		--swiper-theme-color: #fff;

@@ -27,8 +27,6 @@
 		text-align: center;
 		line-height: 44px;
 		font-size: 17px;
-		background: #FF5777;
-		color: #FFFFFF;
 		position: fixed;
 		top: 0;
 		left: 0;

@@ -1,7 +1,7 @@
 <template>
 	<div class="commodityList">
-		<div v-for="(item,index) in commodityList" class="item">
-			<img :src="item.show.img" alt="" @load='imgLoad'>
+		<div v-for="(item,index) in commodityList" class="item" :key='index' @click="commodityClick(item.iid)" :commodityClick='commodityClick'>
+			<img v-lazy="item.show.img" alt="" @load='imgLoad'>
 			<div class="item-text">
 				<p class="title">{{item.title}}</p>
 				<span class="price">&yen; {{item.price}} </span>
@@ -31,11 +31,20 @@
 		methods:{
 			imgLoad(){
 				this.BScroll.refresh()
+			},
+			commodityClick(id) {
+				this.$router.push({
+					path:'/details',
+					query:{
+						iid:id
+					}
+				})
+				
 			}
 		},
 		filters:{
 			formatcfav(val){
-				if(val > 10000){
+				if(val >= 10000){
 					return (val/10000).toFixed(2)+'w'
 				}else{
 					return val

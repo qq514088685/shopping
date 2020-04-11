@@ -6,7 +6,15 @@
 
 <script>
 	export default {
-		name:'Classify'
+		name:'Classify',
+		created(){
+			// this.$toast.loading({
+			//   message: '加载中...',
+			//   forbidClick: true,
+			//   loadingType: 'spinner',
+			//   duration:0
+			// });
+		}
 	}
 </script>
 
